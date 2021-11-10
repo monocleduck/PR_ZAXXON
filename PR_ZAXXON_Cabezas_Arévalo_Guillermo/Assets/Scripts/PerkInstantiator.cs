@@ -12,8 +12,8 @@ public class PerkInstantiator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        intervaloPer = 10f;
-
+        intervaloPer = 0.25f;
+        StartCoroutine("PerkSpawn");
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class PerkInstantiator : MonoBehaviour
     {
         
 
-        StartCoroutine("PerkSpawn");
+        
     }
 
 
@@ -29,7 +29,7 @@ public class PerkInstantiator : MonoBehaviour
     {
         while (true)
         {
-            print("hola");
+            
 
             float randomX = Random.Range(-5f, 5f);
 

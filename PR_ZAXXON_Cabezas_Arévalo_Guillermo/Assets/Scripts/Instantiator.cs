@@ -11,7 +11,7 @@ public class Instantiator : MonoBehaviour
     
     [SerializeField] GameObject ColumnaPrefab;
     [SerializeField] Transform instantiatePos;
-    [SerializeField] Transform PlayerMovement;
+    //[SerializeField] Transform PlayerMovement;
 
 
 
@@ -47,6 +47,7 @@ public class Instantiator : MonoBehaviour
             float randomX = Random.Range(-5f, 5f);
 
             Vector3 newPos = new Vector3(randomX, randomY, instantiatePos.position.z);
+           
             Instantiate(ColumnaPrefab, newPos, Quaternion.Euler(0f, 0f, RandomInclin));
 
             yield return new WaitForSeconds(intervaloCol);
