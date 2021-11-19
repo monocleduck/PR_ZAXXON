@@ -38,7 +38,7 @@ public class Instantiator : MonoBehaviour
 
     IEnumerator CrearColumna()
     {
-        while (true)
+        while (LIVES.vidas > 0)
         {
             float RandomInclin = Random.Range(0, 360);
 
@@ -51,6 +51,8 @@ public class Instantiator : MonoBehaviour
             Instantiate(ColumnaPrefab, newPos, Quaternion.Euler(0f, 0f, RandomInclin));
 
             yield return new WaitForSeconds(intervaloCol);
+        
+        
         }
     }
 

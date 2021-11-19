@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 Movement = new Vector3(0f, 0f, 0f);
 
-    public float speed;
+    public static float speed =  20f;
 
     public int Vuln = 3;
 
@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 20f;
+        
 
     }
 
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Desplazarse();
-
+        Velocidad();
 
     }
 
@@ -66,30 +66,16 @@ public class PlayerMovement : MonoBehaviour
 
             if (Vuln == 3)
             {
-                //Vuln = 0;
+                Vuln = 0;
 
-               // StartCoroutine("Invuln");
+                StartCoroutine("Invuln");
 
                 int lives = LIVES.vidas;
 
                 if (lives > 0)
                 {
                     LIVES.vidas--;
-
-                    speed = 1f;
-
-                    while (speed > 0 && speed < 20)
-                    {
-                        speed = speed * 1.1f;
-
-
-                    }
-                }
-
-                else
-                {
-                    StartCoroutine("Respawn");
-
+                    print(LIVES.vidas);
                 }
 
 
@@ -104,7 +90,15 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    IEnumerator Respawn()
+    public void Velocidad()
+    {
+        if(LIVES.vidas == 0)
+        {
+            speed = 0;
+        }
+    }
+
+    /*IEnumerator Respawn()
     {
         while (true)
         {
@@ -115,8 +109,9 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(5f);
         }
     }
+    */
 
-    /*IEnumerator Invuln()
+    IEnumerator Invuln()
     {
         while (true)
         {
@@ -126,15 +121,15 @@ public class PlayerMovement : MonoBehaviour
 
                 Vuln++;
 
-                print(Vuln);
-
-                yield return new WaitForSeconds(0.5f);
-
+                
             }
+       
+            yield return new WaitForSeconds(0.5f);
+    
         }
     }
-    */
-
+    
+    
 
 
 }

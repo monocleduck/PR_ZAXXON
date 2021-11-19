@@ -27,7 +27,7 @@ public class PerkInstantiator : MonoBehaviour
 
     IEnumerator PerkSpawn()
     {
-        while (true)
+        while (LIVES.vidas > 0)
         {
             
 

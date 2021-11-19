@@ -9,7 +9,7 @@ public class ColumnaMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 40f;
+        speed = PlayerMovement.speed * 2;
     }
 
     // Update is called once per frame
@@ -21,5 +21,7 @@ public class ColumnaMove : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        speed = PlayerMovement.speed * 2;
     }
 }

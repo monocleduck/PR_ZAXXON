@@ -10,7 +10,7 @@ public class PerkMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 20f;
+        speed = PlayerMovement.speed;
     }
 
     // Update is called once per frame
@@ -22,5 +22,7 @@ public class PerkMove : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        speed = PlayerMovement.speed;
     }
 }
