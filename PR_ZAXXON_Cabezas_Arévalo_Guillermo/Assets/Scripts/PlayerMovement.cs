@@ -13,11 +13,13 @@ public class PlayerMovement : MonoBehaviour
     public int Vuln = 3;
 
 
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
+
         
 
     }
@@ -25,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         Desplazarse();
         Velocidad();
 
@@ -75,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
                 if (lives > 0)
                 {
                     LIVES.vidas--;
-                    print(LIVES.vidas);
+                    
                 }
 
 
@@ -92,9 +96,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void Velocidad()
     {
-        if(LIVES.vidas == 0)
+        if(LIVES.vidas <= 0)
         {
             speed = 0;
+
+            ParticleSystem Explosion = GetComponent<ParticleSystem>();
+            Explosion.Play();
+            
+        }
+        else
+        {
+            speed = 20f;
         }
     }
 

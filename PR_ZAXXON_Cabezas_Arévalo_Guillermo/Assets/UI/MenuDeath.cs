@@ -35,6 +35,11 @@ public class MenuDeath : MonoBehaviour
 
     public void Replay()
     {
+        LIVES.vidas = 3;
+        LIVES.Score = 0;
+
         SceneManager.LoadScene(1);
+
+        
     }
 }
